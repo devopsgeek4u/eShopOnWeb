@@ -18,10 +18,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x' # Install .NET 8.0 SDK
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build the application
-      run: dotnet build --configuration Release --no-restore
+    - name: Build with dotnet
+      run: dotnet build ./eShopOnWeb.sln --configuration Release
+    - name: Test with dotnet
+      run: dotnet test ./eShopOnWeb.sln --configuration Release
     - name: Publish the application
       run: dotnet publish -c Release -o ./publish
     - name: Login to Azure Container Registry
